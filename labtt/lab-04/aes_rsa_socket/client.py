@@ -28,6 +28,7 @@ aes_key = cipher_rsa.decrypt(encrypted_aes_key)
 
 # Function to encrypt message
 def encrypt_message(key, message):
+    cipher = AES.new(key, AES.MODE_CBC)
     ciphertext = cipher.encrypt(pad(message.encode(), AES.block_size))
     return cipher.iv + ciphertext
 
